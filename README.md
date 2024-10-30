@@ -1,6 +1,8 @@
-# Multi-representation Emotion Recognition in Immersive Environments
+# Through the Eyes of Emotion: A Multi-representation Eye Tracking
+Dataset for Emotion Recognition in Virtual Reality
 
-This repository contains the dataset and code implementation for the paper **Multi-representation Emotion Recognition in Immersive Environments** by **Annoynmous Authors**. It contains the **Multi-representation Emotion Dataset**, code for the tool for gathering the dataset and the code for the emotion recognition model.
+This repository contains the dataset and code implementation for the paper **Through the Eyes of Emotion: A Multi-representation Eye Tracking
+Dataset for Emotion Recognition in Virtual Reality** by **Annoynmous Authors**. It contains the **Multi-representation Eye Tracking Dataset for Emotion Recognition**, code for the tool for gathering the dataset and the code for the emotion recognition model.
 
 For questions on this repository, please contact the **Annoynmous Authors**.
 
@@ -22,7 +24,7 @@ The 14 stimuli are seleted from the psychology study [*Eliciting emotion ratings
 </p>
 Figure 1: The Paul Ekman's six basic emotions, with neutral in addition to represent when no emotion is present. -->
 
-The stimuli inlcudes:
+<!-- The stimuli inlcudes:
 | Film                                | Year | Start Time | Total Time | Emotion   |
 |-------------------------------------|------|------------|------------|-----------|
 | Kings of Summer                     | 2013 | 1:15:56    | 0:49       | Fear      |
@@ -38,7 +40,25 @@ The stimuli inlcudes:
 | My Sister's Keeper (doctor)         | 2009 | 38:50      | 1:09       | Sadness   |
 | Still Alice                         | 2014 | 45:00      | 1:26       | Sadness   |
 | Deep Blue Sea                       | 1999 | 58:47      | 1:57       | Surprise  |
-| The Conjuring                       | 2013 | 38:27      | 2:06       | Fear      |
+| The Conjuring                       | 2013 | 38:27      | 2:06       | Fear      | -->
+
+The stimuli includes:
+| Emotion   | Film                          | Year | Start Time | Total Time |
+|-----------|-------------------------------|------|------------|------------|
+| Anger     | 12 Years A Slave              | 2013 | 30:02      | 1:48       |
+| Anger     | Enough                        | 2002 | 18:04      | 1:43       |
+| Disgust   | American History X            | 1998 | 54:00      | 1:23       |
+| Disgust   | Limitless (blood)             | 2011 | 1:27:35    | 0:58       |
+| Fear      | Kings of Summer               | 2013 | 1:15:56    | 0:49       |
+| Fear      | The Conjuring                 | 2013 | 38:27      | 2:06       |
+| Happiness | Soul Surfer (homeless girl)   | 2011 | 1:16:18    | 1:45       |
+| Happiness | Lottery Ticket                | 2010 | 25:00      | 1:13       |
+| Neutral   | Ex Machina                    | 2014 | 1:04:14    | 0:45       |
+| Neutral   | Rudderless (business meeting) | 2014 | 2:28       | 0:29       |
+| Sadness   | My Sister's Keeper (doctor)   | 2009 | 38:50      | 1:09       |
+| Sadness   | Still Alice                   | 2014 | 45:00      | 1:26       |
+| Surprise  | One Day                       | 2011 | 1:26:06    | 0:25       |
+| Surprise  | Deep Blue Sea                 | 1999 | 58:47      | 1:57       |
 
 ### 2. Data collection setup
 The dataset is collected from 20 subjects, with demographics of the subjects are as below:
@@ -128,9 +148,9 @@ To deploy the modified Label Studio:
    docker build -t heartexlabs/label-studio:latest .
    ```
 
-2. Run the Docker container:
+2. Run with Docker Compose:
    ```
-   docker run -it -p 8080:8080 heartexlabs/label-studio:latest
+   docker-compose up
    ```
 
 Access the annotation interface at `http://localhost:8080` after deployment.
