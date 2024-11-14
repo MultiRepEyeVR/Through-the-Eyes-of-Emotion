@@ -1,5 +1,4 @@
-# Through the Eyes of Emotion: A Multi-representation Eye Tracking
-Dataset for Emotion Recognition in Virtual Reality
+# Through the Eyes of Emotion
 
 This repository contains the dataset and code implementation for the paper **Through the Eyes of Emotion: A Multi-representation Eye Tracking
 Dataset for Emotion Recognition in Virtual Reality** by **Annoynmous Authors**. It contains the **Multi-representation Eye Tracking Dataset for Emotion Recognition**, code for the tool for gathering the dataset and the code for the emotion recognition model.
@@ -9,6 +8,7 @@ For questions on this repository, please contact the **Annoynmous Authors**.
 ## Outline
 - [Data Collection](#data-collection)
 - [Dataset Download](#dataset-download)
+- [Data Collection and Annotation Tools](#data-collection-and-annotation-tools)
 - [Code](#code)
 - [Citation](#citation)
 - [Acknowledgement](#acknowledgement)
@@ -45,20 +45,20 @@ Figure 1: The Paul Ekman's six basic emotions, with neutral in addition to repre
 The stimuli includes:
 | Emotion   | Film                          | Year | Start Time | Total Time |
 |-----------|-------------------------------|------|------------|------------|
-| Anger     | 12 Years A Slave              | 2013 | 30:02      | 1:48       |
-| Anger     | Enough                        | 2002 | 18:04      | 1:43       |
-| Disgust   | American History X            | 1998 | 54:00      | 1:23       |
-| Disgust   | Limitless (blood)             | 2011 | 1:27:35    | 0:58       |
-| Fear      | Kings of Summer               | 2013 | 1:15:56    | 0:49       |
-| Fear      | The Conjuring                 | 2013 | 38:27      | 2:06       |
-| Happiness | Soul Surfer (homeless girl)   | 2011 | 1:16:18    | 1:45       |
-| Happiness | Lottery Ticket                | 2010 | 25:00      | 1:13       |
-| Neutral   | Ex Machina                    | 2014 | 1:04:14    | 0:45       |
-| Neutral   | Rudderless (business meeting) | 2014 | 2:28       | 0:29       |
-| Sadness   | My Sister's Keeper (doctor)   | 2009 | 38:50      | 1:09       |
-| Sadness   | Still Alice                   | 2014 | 45:00      | 1:26       |
-| Surprise  | One Day                       | 2011 | 1:26:06    | 0:25       |
-| Surprise  | Deep Blue Sea                 | 1999 | 58:47      | 1:57       |
+| Anger     | 12 Years A Slave              | 2013 | 30:02      | 1:55       |
+| Anger     | Enough                        | 2002 | 18:04      | 1:59       |
+| Disgust   | American History X            | 1998 | 54:00      | 2:29       |
+| Disgust   | Limitless (blood)             | 2011 | 1:27:35    | 0:46       |
+| Fear      | Kings of Summer               | 2013 | 1:15:56    | 1:01       |
+| Fear      | The Conjuring                 | 2013 | 38:27      | 2:21       |
+| Happiness | Soul Surfer (homeless girl)   | 2011 | 1:16:18    | 2:31       |
+| Happiness | Lottery Ticket                | 2010 | 25:00      | 1:51       |
+| Neutral   | Ex Machina                    | 2014 | 1:04:14    | 0:43       |
+| Neutral   | Rudderless (business meeting) | 2014 | 2:28       | 0:30       |
+| Sadness   | My Sister's Keeper (doctor)   | 2009 | 38:50      | 1:46       |
+| Sadness   | Still Alice                   | 2014 | 45:00      | 2:22       |
+| Surprise  | One Day                       | 2011 | 1:26:06    | 0:38       |
+| Surprise  | Deep Blue Sea                 | 1999 | 58:47      | 1:34       |
 
 ### 2. Data collection setup
 The dataset is collected from 20 subjects, with demographics of the subjects are as below:
@@ -97,6 +97,22 @@ Each GIF shows the subject's field of view in real-time, with gaze estimation ov
 
 
 ## Dataset Download
+
+### Preview Dataset (For Review)
+A sample dataset containing one complete subject's data is available for preview during the paper review process. The dataset includes:
+- Raw periocular recordings from both eyes (120 FPS, 400x400 resolution)
+- Gaze estimation data (~240 Hz)
+- Pupil diameter measurements (~120 Hz)
+- Voice recordings
+- IMU data from the VR headset
+- Scene recordings (subject's field of view)
+- Self-reported emotion ratings for all 14 stimuli
+
+Download the sample dataset from [Zenodo](https://zenodo.org/records/14165275).
+
+### Complete Dataset
+The complete dataset containing all 20 subjects' data will be made publicly available upon paper acceptance.
+
 **Soon available**
 
 ## Data Collection and Annotation Tools
@@ -107,7 +123,7 @@ This project utilizes two primary tools for data collection and annotation:
 
 A custom Unity-based user interface has been developed for data recording. To access this tool:
 
-1. Download the Unity project from [soon available]().
+1. Download the Unity project from [Zenodo](https://doi.org/10.5281/zenodo.14066626).
 2. Open the project in the Unity Editor.
 
 The interface is designed as follows:
@@ -143,12 +159,7 @@ TASKS_MAX_NUMBER = 1000000000
 
 To deploy the modified Label Studio:
 
-1. Build the Docker image:
-   ```
-   docker build -t heartexlabs/label-studio:latest .
-   ```
-
-2. Run with Docker Compose:
+- Build & Run with Docker Compose:
    ```
    docker-compose up
    ```
@@ -158,7 +169,20 @@ Access the annotation interface at `http://localhost:8080` after deployment.
 
 
 ## Code
-**Soon available**
+This repository provides code for:
+
+1. **Data Preprocessing Pipeline**: 
+   - Recommended preprocessing steps for converting raw data into training-ready datasets
+   - Tools for feature extraction from periocular recordings, pupil measurements, and gaze data
+
+2. **Model Implementation**:
+   - Implementation of our proposed emotion recognition architecture
+   - Training and evaluation scripts
+   - Data loading and augmentation utilities
+
+The code is organized to help researchers reproduce our results and build upon our work. Model weights will be released alongside the complete dataset upon paper acceptance.
+
+**Note**: Detailed documentation and usage instructions will be available soon.
 
 ## Citation
 **Soon available**

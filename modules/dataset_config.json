@@ -1,0 +1,13 @@
+{
+    "raw_data_dir": "eyes_emo_multi_representation_single_sub",
+    "destination_dir": "processed_dataset",
+    "periocular_sample_rate": 10,
+    "scene_sample_rate": 10,
+    "periocular_channels": 1,
+    "scene_channels": 3,
+    "periocular_resolution": 224,
+    "scene_resolution": 224,
+    "gaze_pupil_sample_rate": 120,
+    "window_time": 1.0,
+    "overlap": 0.0
+}
