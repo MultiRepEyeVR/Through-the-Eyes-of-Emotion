@@ -1,0 +1,64 @@
+{
+    "data_path": "processed_dataset",
+    "cross_validation_fold": 5,
+    "data_type_path": "window_1.0_fps_10_fsize_224_fchannel_1_gaze_pupil_rate_120_overlap_0.0",
+    "result_path": "test",
+    "model_path": null,
+  
+    "batch_size": 32,
+  
+    "epochs": 126,
+    "max_update_epochs": 101,
+    "warmup_epochs": 25,
+  
+    "warmup_begin_lr": 0.0,
+    "base_lr": 0.00001,
+    "final_lr": 0.000001,
+  
+    "beta_1": 0.9,
+    "beta_2": 0.999,
+  
+    "training_proportion": 0.6,
+    "finetune_confidence_interval": false,
+    "finetune_shots": 5,
+  
+    "label_smoothing": 0.4,
+  
+    "vivit": {
+      "image_patch_size": 16,
+      "frame_patch_size": 5,
+      "dim": 256,
+      "spatial_depth": 3,
+      "temporal_depth": 1,
+      "heads": 8,
+      "mlp_dim": 1024,
+      "pooling": "mean",
+      "channels": 1,
+      "dim_head": 32,
+      "enc_dropout_rate": 0.1,
+      "emb_dropout_rate": 0.1,
+      "variant": "factorized_encoder"
+    },
+  
+    "ts_transformer": {
+        "model": {
+          "feat_dim": 4,
+          "d_model": 64,
+          "n_heads": 8,
+          "n_layers": 1,
+          "d_ff": 256,
+          "enc_dropout": 0.1,
+          "emb_dropout": 0.1,
+          "projection": "linear",
+          "conv_config": null,
+          "output_pool": true
+      },
+  
+      "example_conv": {
+        "kernel_size": 30,
+        "stride": 5,
+        "dilation": 1,
+        "padding": 0
+      }
+    }
+  }

@@ -1,0 +1,7 @@
+!!int 0: 'neutral'
+!!int 1: 'surprise'
+!!int 2: 'happiness'
+!!int 3: 'sadness'
+!!int 4: 'anger'
+!!int 5: 'disgust'
+!!int 6: 'fear'

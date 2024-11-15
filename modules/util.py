@@ -1,10 +1,14 @@
 import json
+import re
 import sys
 import cv2
 import numpy as np
 import gc
 import pandas as pd
 import math
+import random
+import numpy
+import torch
 
 
 def load_config_file(config_file_path):
@@ -18,6 +22,10 @@ def load_config_file(config_file_path):
 
 def pair(t):
     return t if isinstance(t, tuple) else (t, t)
+
+
+def exists(val):
+    return val is not None
 
 
 def get_elicitation_time_by_subject(timeline, session, subject):
@@ -145,3 +153,41 @@ def load_gaze_and_diameter(gaze_df, pupil_df, window_time, fps, duration, overla
     combined_array = np.array([batch.values for batch in batches])
 
     return combined_array
+
+
+def plant_seed(seed):
+    random.seed(seed)
+    numpy.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    # torch.cuda.manual_seed_all(seed)  # If you are using multi-GPU
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    torch.use_deterministic_algorithms(True)
+
+    # Set the random seed for the DataLoader
+    def seed_worker(worker_id):
+        worker_seed = torch.initial_seed() % 2 ** 32
+        numpy.random.seed(worker_seed)
+        random.seed(worker_seed)
+
+    g = torch.Generator()
+    g.manual_seed(seed)
+
+    return seed_worker, g
+
+
+def extract_parameters_from_filename(filename):
+    pattern = r"window_([\d.]+)_fps_(\d+)_fsize_(\d+)_fchannel_(\d+)_gaze_pupil_rate_(\d+)_overlap_([\d.]+)"
+    match = re.search(pattern, filename)
+    if not match:
+        raise ValueError("Filename does not match expected pattern.")
+
+    window_time = float(match.group(1))
+    periocular_rate = int(match.group(2))
+    frame_size = int(match.group(3))
+    frame_channel = int(match.group(4))
+    gaze_pupil_rate = int(match.group(5))
+    overlap = float(match.group(6))
+
+    return window_time, periocular_rate, frame_size, frame_channel, gaze_pupil_rate, overlap

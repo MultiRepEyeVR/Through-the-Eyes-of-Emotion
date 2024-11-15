@@ -76,7 +76,7 @@ Example of data collected setup:
 <p align="center">
     <img src="./figures/data_collection_setup.jpg" alt="Data Collection" width="600" height="auto">
 </p>
-Figure 1: (a) Pupil Labs add-on eye tracking on HTC VIVE Pro; (b) example of a subject during the data collection; (c) field view of the subject, captured by HTC VIVE Pro.
+Figure: (a) Pupil Labs add-on eye tracking on HTC VIVE Pro; (b) example of a subject during the data collection; (c) field view of the subject, captured by HTC VIVE Pro.
 
 
 ### 3. Data collection procedure
@@ -145,7 +145,7 @@ The annotation interface is illustrated below:
     <img src="./figures/Emotion Recognition UI (1).jpg" alt="Data Annotation Interface" width="800" height="auto">
 </p>
 
-#### Configuration for Large Datasets
+<!-- #### Configuration for Large Datasets
 
 To accommodate large datasets, adjust the following parameters in `label-studio/label_studio/core/settings/base.py`:
 
@@ -153,7 +153,7 @@ To accommodate large datasets, adjust the following parameters in `label-studio/
 DATA_UPLOAD_MAX_MEMORY_SIZE = int(get_env('DATA_UPLOAD_MAX_MEMORY_SIZE', 25 * 1024 * 1024 * 1024))
 DATA_UPLOAD_MAX_NUMBER_FILES = int(get_env('DATA_UPLOAD_MAX_NUMBER_FILES', 10000))
 TASKS_MAX_NUMBER = 1000000000
-```
+``` -->
 
 #### Deployment Using Docker
 
@@ -164,6 +164,7 @@ To deploy the modified Label Studio:
    docker-compose up
    ```
 
+#### Access the annotation interface
 Access the annotation interface at `http://localhost:8080` after deployment.
 
 
