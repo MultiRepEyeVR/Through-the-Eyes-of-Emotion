@@ -237,11 +237,28 @@ processed_dataset/
     ├── P02.h5                    # Processed data for participant 2
     └── ...                       # Additional participant files
 ```
+The `index_info.json` file contains metadata for each participant's processed data, structured for efficient data loading during training:
+```
+{
+    "P01": {
+        // Number of processed samples per emotion session
+        "0a_amount": 43,         # Neutral session a
+        "0b_amount": 31,         # Neutral session b
+        "1a_amount": 5,          # Surprise session a
+        "1b_amount": 10,         # Surprise session b
+        // ... (similar for other emotion sessions)
+        
+        "min_index": 0,          # Starting index in the dataset
+        "max_index": 869         # Ending index in the dataset
+    },
+    // ... entries for other participants
+}
+```
 
 Each participant's H5 file contains:
 ```
 subject.h5/
-├── labels/                       # Shape: (N,)
+├── labels/                      # Shape: (N,)
 │   └── Compound dtype:
 │       ├── subject              # (int64) Subject number
 │       ├── label                # (int64) Emotion label
@@ -257,20 +274,12 @@ subject.h5/
     └── Float32 array of left eye frames (normalized 0-1)
 ```
 
-2. **Model Implementation**:
-   - Implementation of our proposed multi-modal emotion recognition architecture
-   - Modular design supporting different backbone networks
-   - Custom layers for multi-modal fusion
-   - Evaluation metrics and visualization tools
-
-3. **Training Framework**:
+2. **Training Framework**:
    - Complete training pipeline with configuration files (`train_model.ipynb`)
    - Data loading and augmentation utilities
    - Experiment tracking and logging
 
 The code is organized to help researchers reproduce our results and build upon our work. Model weights and will be released alongside the complete dataset upon paper acceptance.
-
-**Note**: Detailed documentation and usage instructions will be available soon.
 
 ## Citation
 **Soon available**
