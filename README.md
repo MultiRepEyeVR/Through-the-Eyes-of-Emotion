@@ -210,7 +210,7 @@ Access the annotation interface at `http://localhost:8080` after deployment.
 This repository provides comprehensive code for data preprocessing, model implementation, and training:
 
 1. **Data Preprocessing Pipeline**: 
-   - Recommended Complete pipeline for converting raw data into training-ready datasets
+   - Recommended Complete pipeline for converting raw data into training-ready datasets (`process_dataset.ipynb`)
    - Feature extraction tools for:
      - Periocular recordings
      - Pupil measurements
@@ -253,12 +253,9 @@ subject.h5/
    - Evaluation metrics and visualization tools
 
 3. **Training Framework**:
-   - Complete training pipeline with configuration files
+   - Complete training pipeline with configuration files (`train_model.ipynb`)
    - Data loading and augmentation utilities
-   - Multi-GPU training support
    - Experiment tracking and logging
-   - Model checkpointing and early stopping
-   - Cross-validation setup
 
 The code is organized to help researchers reproduce our results and build upon our work. Pre-trained model weights and configuration files will be released alongside the complete dataset upon paper acceptance.
 
