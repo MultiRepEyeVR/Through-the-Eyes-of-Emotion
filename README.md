@@ -116,6 +116,7 @@ The complete dataset containing all 20 subjects' data will be made publicly avai
 **Soon available**
 
 ### Dataset Structure
+The dataset follows a hierarchical organization designed for efficient access and processing:
 ```
 dataset/
 ├── P01/
@@ -151,6 +152,16 @@ dataset/
 └── P20/
     └── [same structure as P01]
 ```
+Additionally, we provide `user_label.json` which contains crucial timing information about emotion elicitation for each participant. This file maps the specific timestamps (in MM:SS format) when each participant reported experiencing the intended emotion during different stimuli sessions. For example, in session "2a", some participants reported the emotion from 0:19 while others from 1:20.
+
+The sessions are coded as follows:
+- 0a/0b: Neutral stimuli
+- 1a/1b: Surprise stimuli
+- 2a/2b: Happiness stimuli
+- 3a/3b: Sadness stimuli
+- 4a/4b: Anger stimuli
+- 5a/5b: Disgust stimuli
+- 6a/6b: Fear stimuli
 
 ## Data Collection and Annotation Tools
 
@@ -257,7 +268,7 @@ subject.h5/
    - Data loading and augmentation utilities
    - Experiment tracking and logging
 
-The code is organized to help researchers reproduce our results and build upon our work. Pre-trained model weights and configuration files will be released alongside the complete dataset upon paper acceptance.
+The code is organized to help researchers reproduce our results and build upon our work. Model weights and will be released alongside the complete dataset upon paper acceptance.
 
 **Note**: Detailed documentation and usage instructions will be available soon.
 
