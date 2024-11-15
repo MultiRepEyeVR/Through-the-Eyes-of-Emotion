@@ -115,6 +115,43 @@ The complete dataset containing all 20 subjects' data will be made publicly avai
 
 **Soon available**
 
+### Dataset Structure
+```
+dataset/
+├── P01/
+│   ├── 0a/
+│   │   ├── audio/
+│   │   │   └── micRec.wav
+│   │   ├── gaze_pupil/
+│   │   │   ├── gaze.csv
+│   │   │   └── pupil.csv
+│   │   ├── imu/
+│   │   │   └── imu.csv
+│   │   ├── periocular/
+│   │   │   ├── eye0.mp4
+│   │   │   └── eye1.mp4
+│   │   └── scene/
+│   │       └── world.mp4
+│   ├── 0b/
+│   ├── 1a/
+│   ├── 1b/
+│   ├── 2a/
+│   ├── 2b/
+│   ├── 3a/
+│   ├── 3b/
+│   ├── 4a/
+│   ├── 4b/
+│   ├── 5a/
+│   ├── 5b/
+│   ├── 6a/
+│   └── 6b/
+├── P02/
+│   └── [same structure as P01]
+...
+└── P20/
+    └── [same structure as P01]
+```
+
 ## Data Collection and Annotation Tools
 
 This project utilizes two primary tools for data collection and annotation:
@@ -170,18 +207,60 @@ Access the annotation interface at `http://localhost:8080` after deployment.
 
 
 ## Code
-This repository provides code for:
+This repository provides comprehensive code for data preprocessing, model implementation, and training:
 
 1. **Data Preprocessing Pipeline**: 
-   - Recommended preprocessing steps for converting raw data into training-ready datasets
-   - Tools for feature extraction from periocular recordings, pupil measurements, and gaze data
+   - Recommended Complete pipeline for converting raw data into training-ready datasets
+   - Feature extraction tools for:
+     - Periocular recordings
+     - Pupil measurements
+     - Gaze coordinates
+     - Combined modality processing
+   
+The processed data follows this structure:
+```
+processed_dataset/
+├── [processing_parameters]/      # Directory named with processing configuration
+    ├── index_info.json           # Dataset metadata and processing parameters
+    ├── P01.h5                    # Processed data for participant 1
+    ├── P02.h5                    # Processed data for participant 2
+    └── ...                       # Additional participant files
+```
+
+Each participant's H5 file contains:
+```
+subject.h5/
+├── labels/                       # Shape: (N,)
+│   └── Compound dtype:
+│       ├── subject              # (int64) Subject number
+│       ├── label                # (int64) Emotion label
+│       └── session_label        # (string) Session identifier
+│
+├── gaze_pupil/                  # Shape: (N, gaze_pupil_features)
+│   └── Float32 array of gaze coordinates and pupil diameter
+│
+├── eye0/                        # Shape: (N, H, W, C)
+│   └── Float32 array of right eye frames (normalized 0-1)
+│
+└── eye1/                        # Shape: (N, H, W, C)
+    └── Float32 array of left eye frames (normalized 0-1)
+```
 
 2. **Model Implementation**:
-   - Implementation of our proposed emotion recognition architecture
-   - Training and evaluation scripts
-   - Data loading and augmentation utilities
+   - Implementation of our proposed multi-modal emotion recognition architecture
+   - Modular design supporting different backbone networks
+   - Custom layers for multi-modal fusion
+   - Evaluation metrics and visualization tools
 
-The code is organized to help researchers reproduce our results and build upon our work. Model weights will be released alongside the complete dataset upon paper acceptance.
+3. **Training Framework**:
+   - Complete training pipeline with configuration files
+   - Data loading and augmentation utilities
+   - Multi-GPU training support
+   - Experiment tracking and logging
+   - Model checkpointing and early stopping
+   - Cross-validation setup
+
+The code is organized to help researchers reproduce our results and build upon our work. Pre-trained model weights and configuration files will be released alongside the complete dataset upon paper acceptance.
 
 **Note**: Detailed documentation and usage instructions will be available soon.
 
