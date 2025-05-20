@@ -1,49 +1,50 @@
 # Through the Eyes of Emotion
 
-This repository contains the dataset and code implementation for the paper **Through the Eyes of Emotion: A Multi-representation Eye Tracking
-Dataset for Emotion Recognition in Virtual Reality** by **Annoynmous Authors**. It contains the **Multi-representation Eye Tracking Dataset for Emotion Recognition**, code for the tool for gathering the dataset and the code for the emotion recognition model.
+This repository contains the dataset and code implementation for the paper **Through the Eyes of Emotion: A Multi-faceted Eye Tracking Dataset for Emotion Recognition in Virtual Reality** by **Anonymous Author(s)**. It includes:
+- **Multi-faceted Eye Tracking Dataset for Emotion Recognition**, featuring periocular videos, high-frequency eye-tracking signals, VR scene recordings, and IMU data.
+- **Data Collection and Annotation Tools**, implemented in Unity and Label Studio.
+- **Emotion Recognition Model and Benchmarks**, demonstrating the benefits of fusing periocular and eye movement signals.
 
 For questions on this repository, please contact the **Annoynmous Authors**.
 
 ## Outline
+- [Contributions](#contributions)
 - [Data Collection](#data-collection)
 - [Dataset Download](#dataset-download)
 - [Data Collection and Annotation Tools](#data-collection-and-annotation-tools)
+- [Results](#results)
 - [Code](#code)
 - [Citation](#citation)
 - [Acknowledgement](#acknowledgement)
 
+## Contributions
+Our work advances VR-based emotion recognition in three key ways:
+1. **Multi-faceted Eye Tracking**  
+   - **Periocular videos** captured at 120 fps (400 × 400) using near-eye cameras, enabling analysis of micro-expressions and eyebrow movements.  
+   - **Gaze** recorded at 240 Hz and **pupil diameter** recorded at 120 Hz.  
+2. **Discrete Emotion Annotations**  
+   - Emotion labels based on Ekman's seven basic emotions (Happiness, Sadness, Fear, Disgust, Anger, Surprise, Neutral).  
+   - Segment-based intensity ratings (1–10) provided by participants to capture emotion dynamics.  
+3. **Open-source Collection Toolchain**  
+   - Unity-based VR environment with a curved display and mid-peripheral field of view for effective 2D video stimuli.  
+   - Data Recording UI for synchronized capture of VR scene, periocular video, eye-tracker, and IMU signals.  
+   - Label Studio interface for segment annotation and intensity labeling.
+
+
 ## Data Collection
 
-### 1. Stimuli selection
+### 1. Stimuli Selection
 
-The 14 stimuli are seleted from the psychology study [*Eliciting emotion ratings for a set of film clips: A preliminary archive for research in emotion*](https://www.tandfonline.com/doi/full/10.1080/00224545.2020.1758016). The 14 stimuli triggers 7 emotions which are Surprise, Happiness, Anger, Fear, Disgust, Sadness, and Neutral, as shown in the figure below.
+The video stimuli used in our data collection were selected in two stages, each involving a separate set of 14 short video clips designed to evoke the seven basic emotions (Surprise, Happiness, Anger, Fear, Disgust, Sadness, and Neutral), with two clips per emotion. The detailed information for each set is provided in the paper (see Tables 9 and 10 in the Appendix).
 
-<!-- <p align="center">
-  <img src="./figures/emotion_model.png" alt="Emotion Stimuli" width="300" height="auto">
-</p>
-Figure 1: The Paul Ekman's six basic emotions, with neutral in addition to represent when no emotion is present. -->
+All video clips were chosen from the validated database by Zupan et al. ([*Eliciting emotion ratings for a set of film clips: A preliminary archive for research in emotion*](https://www.tandfonline.com/doi/full/10.1080/00224545.2020.1758016)), based on emotional intensity ratings collected from 113 participants. Emotional intensity was rated on a scale from 1 (not at all) to 9 (extremely).
 
-<!-- The stimuli inlcudes:
-| Film                                | Year | Start Time | Total Time | Emotion   |
-|-------------------------------------|------|------------|------------|-----------|
-| Kings of Summer                     | 2013 | 1:15:56    | 0:49       | Fear      |
-| American History X                  | 1998 | 54:00      | 1:23       | Disgust   |
-| Limitless (blood)                   | 2011 | 1:27:35    | 0:58       | Disgust   |
-| Soul Surfer (homeless girl)         | 2011 | 1:16:18    | 1:45       | Happiness |
-| Ex Machina                          | 2014 | 1:04:14    | 0:45       | Neutral   |
-| Rudderless (business meeting)       | 2014 | 2:28       | 0:29       | Neutral   |
-| One Day                             | 2011 | 1:26:06    | 0:25       | Surprise  |
-| 12 Years A Slave                    | 2013 | 30:02      | 1:48       | Anger     |
-| Enough                              | 2002 | 18:04      | 1:43       | Anger     |
-| Lottery Ticket                      | 2010 | 25:00      | 1:13       | Happiness |
-| My Sister's Keeper (doctor)         | 2009 | 38:50      | 1:09       | Sadness   |
-| Still Alice                         | 2014 | 45:00      | 1:26       | Sadness   |
-| Deep Blue Sea                       | 1999 | 58:47      | 1:57       | Surprise  |
-| The Conjuring                       | 2013 | 38:27      | 2:06       | Fear      | -->
+For each emotion, we selected the clips with the highest average emotional intensity, prioritizing both strong emotional impact and diversity in content and scenarios. Each video clip was accompanied by a brief content sentence, presented to participants before playback to provide context and aid in emotional engagement.
 
-The stimuli includes:
-| Emotion   | Film                          | Year | Start Time | Total Time |
+This selection process ensured robust and generalizable emotional elicitation across a wide range of narrative situations.
+
+The stimuli in **Study One** includes:
+| Emotion   | Film (Video Clip)             | Year | Start Time | Total Time |
 |-----------|-------------------------------|------|------------|------------|
 | Anger     | 12 Years A Slave              | 2013 | 30:02      | 1:55       |
 | Anger     | Enough                        | 2002 | 18:04      | 1:59       |
@@ -55,19 +56,38 @@ The stimuli includes:
 | Happiness | Lottery Ticket                | 2010 | 25:00      | 1:51       |
 | Neutral   | Ex Machina                    | 2014 | 1:04:14    | 0:43       |
 | Neutral   | Rudderless (business meeting) | 2014 | 2:28       | 0:30       |
-| Sadness   | My Sister's Keeper (doctor)   | 2009 | 38:50      | 1:46       |
+| Sadness   | My Sister's Keeper  | 2009 | 38:50      | 1:46       |
 | Sadness   | Still Alice                   | 2014 | 45:00      | 2:22       |
 | Surprise  | One Day                       | 2011 | 1:26:06    | 0:38       |
 | Surprise  | Deep Blue Sea                 | 1999 | 58:47      | 1:34       |
+
+The stimuli in **Study Two** includes:
+| Emotion   | Film (Video Clip)             | Year | Start Time | Total Time |
+|-----------|-------------------------------|------|------------|------------|
+| Anger     | Crash                         | 2004 | 15:50      | 1:32       |
+| Anger     | The Hunting Ground            | 2016 | 10:15      | 2:02       |
+| Disgust   | Wild                          | 2014 | 1:15       | 1:02       |
+| Disgust   | Slumdog Millionaire (blinded) | 2008 | 30:33      | 1:13       |
+| Fear      | The Life Before Her Eyes      | 2007 | 5:08       | 2:00       |
+| Fear      | Insidious                     | 2010 | 44:30      | 2:31       |
+| Happiness | Forrest Gump (reunion)        | 1994 | 1:06:54    | 0:51       |
+| Happiness | Soul Surfer (surfing)         | 2011 | 50:05      | 1:49       |
+| Neutral   | Good Will Hunting             | 1997 | 1:01:24    | 1:28       |
+| Neutral   | The Other Woman               | 2014 | 4:49       | 0:45       |
+| Sadness   | I Am Sam                      | 2001 | 1:32:45    | 1:48       |
+| Sadness   | My Sister's Keeper (doctor)   | 2009 | 38:50      | 1:40       |
+| Surprise  | The Call (parking garage)     | 2013 | 22:22      | 0:26       |
+| Surprise  | Joe                           | 2013 | 26:41      | 0:32       |
+
 
 ### 2. Data collection setup
 The dataset is collected from 20 subjects, with demographics of the subjects are as below:
 | Characteristic | Details |
 |---------------------|-------------------------------------------------------------------|
-| Total Number | 20 Participants |
-| Gender Distribution | Female (9), Male (11) |
-| Age Range | Min: 20, Max: 30, Mean: 24.9 ± 2.3 |
-| Ethnicity | Caucasian (11), East Asian (4), Middle Eastern (2), South Asian (1), African (1) |
+| Total Number | 26 Participants |
+| Gender Distribution | Female (11), Male (15) |
+| Age Range | Min: 20, Max: 41, Mean: 26.2 ± 4.2 |
+| Ethnicity | Caucasian (11), East Asian (7), Middle Eastern (2), South Asian (4), African (1), Southeast Asian (1) |
 
 
  The data was collected using add-on eye tracking on HTC VIVE Pro from [Pupil Labs](https://pupil-labs.com/products/vr-ar). During the data collection, the subejcts wear and VR headset and sits on a chair while free to move any part of their body. Note that calibration is only performed once for each subject before the presenting the stimuli. We also gathered users' self-reported emotion ratings for each stimuli, ranging on the scale of 0 to 10, where 0 is the least intensity and 10 is the most intensity. Threshold 6 is taken indicated the subject is experiencing the emotion.
@@ -111,7 +131,7 @@ A sample dataset containing one complete subject's data is available for preview
 Download the sample dataset from [Zenodo](https://zenodo.org/records/14165275).
 
 ### Complete Dataset
-The complete dataset containing all 20 subjects' data will be made publicly available upon paper acceptance.
+The complete dataset containing all 26 subjects' data will be made publicly available upon paper acceptance.
 
 **Soon available**
 
@@ -120,48 +140,75 @@ The dataset follows a hierarchical organization designed for efficient access an
 ```
 dataset/
 ├── P01/
-│   ├── 0a/
-│   │   ├── audio/
-│   │   │   └── micRec.wav
-│   │   ├── gaze_pupil/
-│   │   │   ├── gaze.csv
-│   │   │   └── pupil.csv
-│   │   ├── imu/
-│   │   │   └── imu.csv
-│   │   ├── periocular/
-│   │   │   ├── eye0.mp4
-│   │   │   └── eye1.mp4
-│   │   └── scene/
-│   │       └── world.mp4
-│   ├── 0b/
-│   ├── 1a/
-│   ├── 1b/
-│   ├── 2a/
-│   ├── 2b/
-│   ├── 3a/
-│   ├── 3b/
-│   ├── 4a/
-│   ├── 4b/
-│   ├── 5a/
-│   ├── 5b/
-│   ├── 6a/
-│   └── 6b/
+│ ├── 0a/
+│ ├── 0b/
+│ ├── 1a/
+│ ├── 1b/
+│ ├── 2a/
+│ ├── 2b/
+│ ├── 3a/
+│ ├── 3b/
+│ ├── 4a/
+│ ├── 4b/
+│ ├── 5a/
+│ ├── 5b/
+│ ├── 6a/
+│ └── 6b/
 ├── P02/
-│   └── [same structure as P01]
+│ └── [same structure as P01]
 ...
-└── P20/
-    └── [same structure as P01]
+├── P20/
+│ └── [same structure as P01]
+├── P21/
+│ ├── 0c/
+│ ├── 0d/
+│ ├── 1c/
+│ ├── 1d/
+│ ├── 2c/
+│ ├── 2d/
+│ ├── 3c/
+│ ├── 3d/
+│ ├── 4c/
+│ ├── 4d/
+│ ├── 5c/
+│ ├── 5d/
+│ ├── 6c/
+│ └── 6d/
+├── P22/
+│ └── [same structure as P21]
+...
+└── P26/
+└── [same structure as P21]
 ```
-Additionally, we provide `user_label.json` which contains crucial timing information about emotion elicitation for each participant. This file maps the specific timestamps (in MM:SS format) when each participant reported experiencing the intended emotion during different stimuli sessions. For example, in session "2a", some participants reported the emotion from 0:19 while others from 1:20.
+- **P01–P20**: Subjects from Study One. Each has session folders labeled `0a/0b`, `1a/1b`, ..., `6a/6b` (where `a` and `b` indicate the two clips per emotion from Study One).
+- **P21–P26**: Subjects from Study Two. Each has session folders labeled `0c/0d`, `1c/1d`, ..., `6c/6d` (where `c` and `d` indicate the two clips per emotion from Study Two).
 
-The sessions are coded as follows:
-- 0a/0b: Neutral stimuli
-- 1a/1b: Surprise stimuli
-- 2a/2b: Happiness stimuli
-- 3a/3b: Sadness stimuli
-- 4a/4b: Anger stimuli
-- 5a/5b: Disgust stimuli
-- 6a/6b: Fear stimuli
+Each session folder (e.g., `0a/`, `1d/`) contains:
+- `audio/` (e.g., `micRec.wav`)
+- `gaze_pupil/` (`gaze.csv`, `pupil.csv`)
+- `imu/` (`imu.csv`)
+- `periocular/` (`eye0.mp4`, `eye1.mp4`)
+- `scene/` (`world.mp4`)
+
+Additionally, we provide a `user_label.json` file containing crucial timing information about emotion elicitation for each participant. This file maps the specific timestamps (in MM:SS format) when each participant reported experiencing the intended emotion during different stimuli sessions.
+
+**Session coding:**
+- For P01–P20:  
+  - `0a/0b`: Neutral (Study One)  
+  - `1a/1b`: Surprise (Study One)  
+  - `2a/2b`: Happiness (Study One)  
+  - `3a/3b`: Sadness (Study One)  
+  - `4a/4b`: Anger (Study One)  
+  - `5a/5b`: Disgust (Study One)  
+  - `6a/6b`: Fear (Study One)
+- For P21–P26:  
+  - `0c/0d`: Neutral (Study Two)  
+  - `1c/1d`: Surprise (Study Two)  
+  - `2c/2d`: Happiness (Study Two)  
+  - `3c/3d`: Sadness (Study Two)  
+  - `4c/4d`: Anger (Study Two)  
+  - `5c/5d`: Disgust (Study Two)  
+  - `6c/6d`: Fear (Study Two)
 
 ## Data Collection and Annotation Tools
 
@@ -175,7 +222,6 @@ A custom Unity-based user interface has been developed for data recording. To ac
 2. Open the project in the Unity Editor.
 
 The interface is designed as follows:
-
 <p align="center">
     <img src="./figures/Emotion Recognition UI.jpg" alt="Data Recording Interface" width="800" height="auto">
 </p>
@@ -215,6 +261,77 @@ To deploy the modified Label Studio:
 #### Access the annotation interface
 Access the annotation interface at `http://localhost:8080` after deployment.
 
+
+## Results
+
+We compare three variants throughout:
+
+* **Eye-movement only** – gaze + pupil-diameter time–series  
+* **Periocular video only** – periocular recordings of each eye  
+* **Multi-faceted (ours)** – fusion of periocular and eye-movement streams  
+
+> **Note:** Results 1-3 are based on **the 20 participants and 14 video clips of *Study One***.  
+> Result 4 evaluates **cross-study transfer from Study One → Study Two** (6 new participants and 14 new clips).
+
+---
+
+### 1 · Subject-independent pre-training    
+*Five-fold CV on Study One: train on 16 subjects (two sessions each), test on the 4 held-out subjects.*  
+
+| Window (s) | 0.5 | 1.0 | 1.5 | 2.0 |
+|------------|-----|-----|-----|-----|
+| Eye-mov. **F1 / Acc** | 0.26 / 0.28 | 0.27 / 0.29 | 0.29 / 0.31 | 0.30 / 0.31 |
+| Periocular **F1 / Acc** | **0.45 / 0.45** | 0.44 / 0.44 | 0.46 / 0.47 | 0.45 / 0.45 |
+| **Multi-faceted F1 / Acc** | 0.43 / 0.43 | **0.44 / 0.44** | **0.46 / 0.47** | **0.52 / 0.52** |
+
+With a 2 s window the fusion model raises F1 by **+73.3%** over eye movements alone and **+15.6%** over periocular video.   
+
+---
+
+### 2 · 10 % fine-tuning (subject-dependent)    
+*The pre-trained network is fine-tuned on the **first 10 %** of each recording, then evaluated either on the same session or on the subject's other session (unseen clips).*  
+
+| Setting | Eye-mov. | Periocular | **Multi-faceted** |
+|---------|----------|-----------|-------------------|
+| Same-session **F1 / Acc** | 0.46 / 0.49 | 0.82 / 0.82 | **0.84 / 0.85** |
+| Cross-session **F1 / Acc** | 0.23 / 0.25 | 0.54 / 0.55 | **0.70 / 0.71** |
+
+Fusion adapts best—especially when testing on **new video stimuli**.
+
+---
+
+### 3 · Few-shot cross-session adaptation    
+*The model is fine-tuned on **k labelled segments per class** from Session A of each subject and tested on Session B (different clips).*  
+
+| Shots / class | 1 | 2 | 3 | 4 | 5 |
+|---------------|---|---|---|---|---|
+| Periocular **F1 / Acc** | 0.53 / 0.53 | 0.56 / 0.56 | 0.57 / 0.57 | 0.57 / 0.57 | 0.57 / 0.57 |
+| **Multi-faceted F1 / Acc** | **0.67 / 0.66** | **0.68 / 0.67** | **0.69 / 0.69** | **0.70 / 0.69** | **0.70 / 0.70** |
+
+With just **one** segment per emotion, fusion is already outperforming the periocular baseline; we omit eye-movement results here due to its very low performance. 
+
+---
+
+### 4 · Few-shot cross-**study** transfer  (Study One → Study Two)  
+*Pre-train on all of Study One, then fine-tune and test **subject-specifically** on Study Two (new users **and** new clips).*  
+
+| Shots / class | 1 | 2 | 3 | 4 | 5 |
+|---------------|---|---|---|---|---|
+| Eye-mov. **F1 / Acc** | 0.12 / 0.16 | 0.14 / 0.17 | 0.14 / 0.17 | 0.14 / 0.17 | 0.15 / 0.18 |
+| Periocular **F1 / Acc** | 0.52 / 0.52 | 0.52 / 0.52 | 0.53 / 0.53 | 0.54 / 0.54 | 0.55 / 0.55 |
+| **Multi-faceted F1 / Acc** | **0.57 / 0.58** | **0.59 / 0.60** | **0.59 / 0.60** | **0.61 / 0.61** | **0.62 / 0.62** |
+
+Fusion more than **quadruples** the 1-shot F1 of the eye-movement baseline and maintains an advantage over periocular up to 5 shots, evidencing robust generalisation to **unseen subjects *and* unseen stimuli**.
+
+---
+
+#### Key take-aways  
+
+* Fusion of periocular recordings with eye-movements **wins across every scenario**.  
+* It is highly **data-efficient**, needing as little as one labelled segment per emotion to surpass stronger single-stream baselines.  
+* Longer eye-movement windows help that baseline, but fusion still leads by ≥ 10 F1 points in Study One and by ≥ 42 F1 points in cross-study transfer.
+
+These findings confirm that fine-grained periocular cues and high-frequency eye dynamics form a complementary, powerful signal for emotion recognition in VR.
 
 
 ## Code
