@@ -81,7 +81,7 @@ The stimuli in **Study Two** includes:
 
 
 ### 2. Data collection setup
-The dataset is collected from 20 subjects, with demographics of the subjects are as below:
+The dataset is collected from 26 subjects, with demographics of the subjects are as below:
 | Characteristic | Details |
 |---------------------|-------------------------------------------------------------------|
 | Total Number | 26 Participants |
