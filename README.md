@@ -4,7 +4,7 @@ This repository contains the dataset and code implementation for the paper **Thr
 - **Multi-faceted Eye Tracking Dataset for Emotion Recognition**, featuring periocular videos, high-frequency eye-tracking signals, VR scene recordings, and IMU data.
 - **Data Collection and Annotation Tools**, implemented in Unity and Label Studio.
 
-For questions on this repository, please contact Tongyun Yang (tongyunyang AT outlook DOC com).
+For questions on this repository, please contact Tongyun Yang (tongyunyang AT outlook.com) or Guohao Lan (g.lan AT tudelft.nl).
 
 ## Outline
 - [Contributions](#contributions)
