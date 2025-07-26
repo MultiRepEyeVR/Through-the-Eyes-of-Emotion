@@ -324,7 +324,19 @@ subject.h5/
 The code is organized to help researchers reproduce our results and build upon our work. Model weights and will be released alongside the complete dataset upon paper acceptance.
 
 ## Citation
-**Soon available**
+
+Please cite the paper in your publications if it helps your research.
+```
+@article{yang2025VREyeEmotion,
+  title={Through the Eyes of Emotion: A Multi-faceted Eye Tracking Dataset for Emotion Recognition in Virtual Reality},
+  author={Yang, Tongyun and Regmi, Bishwas and Du, Lingyu and and Bulling, Andreas and Zhang, Xucong and Lan, Guohao},
+  journal={Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
+  volume={9},
+  number={3},
+  year={2025},
+  publisher={ACM New York, NY, USA}
+}
+```
 
 ## Acknowledgement
 This work was supported in part by the Meta Research Award, SURF Research Cloud grant EINF-6360, and the EU’s Horizon Europe HarmonicAI project under the HORIZON MSCA-2022-SE-01 scheme with grant agreement number 101131117. The contents of this paper do not necessarily reflect the positions or policies of the funding agencies.
