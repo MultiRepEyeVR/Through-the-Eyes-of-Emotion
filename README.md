@@ -1,11 +1,10 @@
 # Through the Eyes of Emotion
 
-This repository contains the dataset and code implementation for the paper **Through the Eyes of Emotion: A Multi-faceted Eye Tracking Dataset for Emotion Recognition in Virtual Reality** by **Anonymous Author(s)**. It includes:
+This repository contains the dataset and code implementation for the paper **Through the Eyes of Emotion: A Multi-faceted Eye Tracking Dataset for Emotion Recognition in Virtual Reality**. It includes:
 - **Multi-faceted Eye Tracking Dataset for Emotion Recognition**, featuring periocular videos, high-frequency eye-tracking signals, VR scene recordings, and IMU data.
 - **Data Collection and Annotation Tools**, implemented in Unity and Label Studio.
-- **Emotion Recognition Model and Benchmarks**, demonstrating the benefits of fusing periocular and eye movement signals.
 
-For questions on this repository, please contact the **Annoynmous Authors**.
+For questions on this repository, please contact Tonyun Yang (tongyunyang AT outlook DOC com) or Guohao Lan (g DOT lan AT tudelft DOT nl).
 
 ## Outline
 - [Contributions](#contributions)
@@ -43,7 +42,7 @@ For each emotion, we selected the clips with the highest average emotional inten
 
 This selection process ensured robust and generalizable emotional elicitation across a wide range of narrative situations.
 
-The stimuli in **Study One** includes:
+The stimuli used in **Study One** includes:
 | Emotion   | Film (Video Clip)             | Year | Start Time | Total Time |
 |-----------|-------------------------------|------|------------|------------|
 | Anger     | 12 Years A Slave              | 2013 | 30:02      | 1:55       |
@@ -61,7 +60,7 @@ The stimuli in **Study One** includes:
 | Surprise  | One Day                       | 2011 | 1:26:06    | 0:38       |
 | Surprise  | Deep Blue Sea                 | 1999 | 58:47      | 1:34       |
 
-The stimuli in **Study Two** includes:
+The stimuli used in **Study Two** includes:
 | Emotion   | Film (Video Clip)             | Year | Start Time | Total Time |
 |-----------|-------------------------------|------|------------|------------|
 | Anger     | Crash                         | 2004 | 15:50      | 1:32       |
