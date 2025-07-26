@@ -328,4 +328,4 @@ The code is organized to help researchers reproduce our results and build upon o
 **Soon available**
 
 ## Acknowledgement
-**Soon available**
+This work was supported in part by the Meta Research Award, SURF Research Cloud grant EINF-6360, and the EU’s Horizon Europe HarmonicAI project under the HORIZON MSCA-2022-SE-01 scheme with grant agreement number 101131117. The contents of this paper do not necessarily reflect the positions or policies of the funding agencies.
