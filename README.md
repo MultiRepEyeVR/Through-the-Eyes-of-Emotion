@@ -11,8 +11,7 @@ For questions on this repository, please contact Tonyun Yang (tongyunyang AT out
 - [Data Collection](#data-collection)
 - [Dataset Download](#dataset-download)
 - [Data Collection and Annotation Tools](#data-collection-and-annotation-tools)
-- [Results](#results)
-- [Code](#code)
+- [Implementation for Evaluation](#code)
 - [Citation](#citation)
 - [Acknowledgement](#acknowledgement)
 
@@ -260,7 +259,7 @@ To deploy the modified Label Studio:
 #### Access the annotation interface
 Access the annotation interface at `http://localhost:8080` after deployment.
 
-## Code
+## Implementation for Evaluation
 This repository provides comprehensive code for data preprocessing, model implementation, and training:
 
 1. **Data Preprocessing Pipeline**: 
