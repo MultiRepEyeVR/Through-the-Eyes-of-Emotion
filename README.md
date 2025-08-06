@@ -131,7 +131,7 @@ Download the sample dataset from [Zenodo](https://zenodo.org/records/14165275).
 ### Complete Dataset
 The complete dataset containing all 26 subjects' data will be made publicly available upon paper acceptance.
 
-**Soon available**
+Download the full dataset from [**Soon available**]().
 
 ### Dataset Structure
 The dataset follows a hierarchical organization designed for efficient access and processing:
@@ -226,10 +226,14 @@ The interface is designed as follows:
 
 ### 2. Data Annotation Interface
 
-For data annotation, we employ a modified version of [Label Studio](https://labelstud.io/). Due to potential compatibility issues with the latest release, we recommend using our adapted version:
+For data annotation, we employ a modified version of [Label Studio](https://labelstud.io/). Our custom implementation is based on a specific version of Label studio with some special designs for the emotion annotation tasks.
 
-1. Download our modified Label Studio version from [soon available]().
-2. Follow the installation instructions provided in the download.
+#### Installation Options
+
+1. **Official Label Studio**: Download from [HumanSignal/label-studio](https://github.com/HumanSignal/label-studio/)
+2. **Our Modified Version**: Download our customized version optimized for emotion recognition tasks from [**Soon available**]().
+
+Both versions are expected to be compatible with our annotation workflow.
 
 The annotation interface is illustrated below:
 
@@ -237,17 +241,24 @@ The annotation interface is illustrated below:
     <img src="./figures/Emotion Recognition UI (1).jpg" alt="Data Annotation Interface" width="800" height="auto">
 </p>
 
-<!-- #### Configuration for Large Datasets
+### 3. Usage
 
-To accommodate large datasets, adjust the following parameters in `label-studio/label_studio/core/settings/base.py`:
+#### Configuration Setup
+
+To handle our large-scale dataset, modify the following parameters in `label-studio/label_studio/core/settings/base.py`:
 
 ```python
 DATA_UPLOAD_MAX_MEMORY_SIZE = int(get_env('DATA_UPLOAD_MAX_MEMORY_SIZE', 25 * 1024 * 1024 * 1024))
 DATA_UPLOAD_MAX_NUMBER_FILES = int(get_env('DATA_UPLOAD_MAX_NUMBER_FILES', 10000))
 TASKS_MAX_NUMBER = 1000000000
-``` -->
+```
 
-#### Deployment Using Docker
+For authentication, add your Label Studio identification token in the configuration file `here/here`:
+```python
+
+```
+
+#### Deployment
 
 To deploy the modified Label Studio:
 
@@ -321,7 +332,7 @@ subject.h5/
    - Data loading and augmentation utilities
    - Experiment tracking and logging
 
-The code is organized to help researchers reproduce our results and build upon our work. Model weights and will be released alongside the complete dataset upon paper acceptance.
+The code is organized to help researchers reproduce our results and build upon our work. The complete dataset will be released upon paper acceptance.
 
 ## Citation
 
