@@ -216,13 +216,18 @@ This project utilizes two primary tools for data collection and annotation:
 
 A custom Unity-based user interface has been developed for data recording. To access this tool:
 
-1. Download the Unity project from [Zenodo](https://doi.org/10.5281/zenodo.14066626).
+1. Download the Unity project with corresponding scripts from [Zenodo](https://doi.org/10.5281/zenodo.16778708).
 2. Open the project in the Unity Editor.
 
 The interface is designed as follows:
 <p align="center">
     <img src="./figures/Emotion Recognition UI.jpg" alt="Data Recording Interface" width="800" height="auto">
 </p>
+
+**Important Setup Note**: When opening the project in Visual Studio (`.sln` file), you will find a hardcoded path in `PythonScriptsManagerScript.cs` that points to a local Python script. You need to:
+1. Place the required Python scripts (the directory `Scripts`) including `prepareLabelStudio.py` and `launch_pupil.py` (downloaded in addition to the Unity project) in your desired location
+2. Update the absolute paths in `PythonScriptsManagerScript.cs` to point to your Python script location
+3. Specify the absolute path for data storage location on line`76` (by default, we recommend `Desktop/ER_in_VR_Recordings/`)
 
 ### 2. Data Annotation Interface
 
@@ -231,7 +236,7 @@ For data annotation, we employ a modified version of [Label Studio](https://labe
 #### Installation Options
 
 1. **Official Label Studio**: Download from [HumanSignal/label-studio](https://github.com/HumanSignal/label-studio/)
-2. **Our Modified Version**: Download our customized version optimized for emotion recognition tasks from [**Soon available**]().
+2. **Our Modified Version**: Download our customized version optimized for emotion recognition tasks from [Zenodo](https://doi.org/10.5281/zenodo.16778800).
 
 Both versions are expected to be compatible with our annotation workflow.
 
@@ -253,9 +258,10 @@ DATA_UPLOAD_MAX_NUMBER_FILES = int(get_env('DATA_UPLOAD_MAX_NUMBER_FILES', 10000
 TASKS_MAX_NUMBER = 1000000000
 ```
 
-For authentication, add your Label Studio identification token in the configuration file `here/here`:
+For authentication, add your Label Studio identification token in the python file mentioned above `prepareLabelStudio.py`:
 ```python
-
+API_KEY = 'YOUR SECRET KEY HERE'
+# example: API_KEY = 'c6270738f719fjk18904ujf1ehhf729'
 ```
 
 #### Deployment
