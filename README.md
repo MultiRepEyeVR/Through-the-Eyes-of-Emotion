@@ -131,7 +131,7 @@ Download the sample dataset from [Zenodo](https://zenodo.org/records/14165275).
 ### Complete Dataset
 The complete dataset containing all 26 subjects' data will be made publicly available upon paper acceptance.
 
-Download the full raw dataset from [Zenoda]() and full processed dataset from [Zenoda]() to reproduce our results.
+Download the full raw dataset from [Zenodo]() and full processed dataset from [Zenodo]() to reproduce our results. (**Waiting for storage quota increase request on Zenodo to host our data**)
 
 ### Dataset Structure
 The dataset follows a hierarchical organization designed for efficient access and processing:
