@@ -131,7 +131,21 @@ Download the sample dataset from [Zenodo](https://zenodo.org/records/14165275).
 ### Complete Dataset
 The complete dataset containing all 26 subjects' data will be made publicly available upon paper acceptance.
 
-Download the full raw dataset from [Zenodo]() and full processed dataset from [Zenodo]() to reproduce our results. (**Waiting for storage quota increase request on Zenodo to host our data**)
+To comply with single-file size limits on the hosting platform, both the raw and processed datasets are uploaded as multi‑part archives. Please download all parts for each dataset and then combine them locally before extracting.
+
+- Raw dataset (parts): [Zenodo-1](https://zenodo.org/records/16794721), [Zenodo-2](https://zenodo.org/records/16794737), [Zenodo-3](https://zenodo.org/records/16794742)
+- Processed dataset (parts): [Zenodo-1](), [Zenodo-2](), [Zenodo-3]()
+
+Combine the parts and extract:
+```bash
+# Join parts into a single zip
+cat <name>.zip.part-* > <name>.zip
+
+# Unzip
+unzip <name>.zip
+```
+
+Note: Ensure all parts (e.g., .part-01, .part-02, .part-03) are fully downloaded for each dataset before running the join command.
 
 ### Dataset Structure
 The dataset follows a hierarchical organization designed for efficient access and processing:
