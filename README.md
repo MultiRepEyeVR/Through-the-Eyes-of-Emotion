@@ -134,7 +134,7 @@ The complete dataset containing all 26 subjects' data will be made publicly avai
 To comply with single-file size limits on the hosting platform, both the raw and processed datasets are uploaded as multi‑part archives. Please download all parts for each dataset and then combine them locally before extracting.
 
 - Raw dataset (parts): [Zenodo-1](https://zenodo.org/records/16794721), [Zenodo-2](https://zenodo.org/records/16794737), [Zenodo-3](https://zenodo.org/records/16794742)
-- Processed dataset (parts): [Zenodo-1](), [Zenodo-2](), [Zenodo-3]()
+- Processed dataset (parts): [Zenodo-1](https://zenodo.org/records/16794776), [Zenodo-2](https://zenodo.org/records/16794794), [Zenodo-3]()
 
 Combine the parts and extract:
 ```bash
