@@ -135,6 +135,7 @@ To comply with single-file size limits on the hosting platform, both the raw and
 
 - Raw dataset (parts): [Zenodo-1](https://zenodo.org/records/16794721), [Zenodo-2](https://zenodo.org/records/16794737), [Zenodo-3](https://zenodo.org/records/16794742)
 - Processed dataset (parts): [Zenodo-1](https://zenodo.org/records/16794776), [Zenodo-2](https://zenodo.org/records/16794794), [Zenodo-3](https://zenodo.org/records/16794809)
+- Processed dataset (full): [Zenodo](https://zenodo.org/records/16790658)
 
 Combine the parts and extract:
 ```bash
