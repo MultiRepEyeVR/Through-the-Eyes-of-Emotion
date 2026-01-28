@@ -1,6 +1,17 @@
 # Through the Eyes of Emotion
 
-This repository contains the dataset and code implementation for the paper **Through the Eyes of Emotion: A Multi-faceted Eye Tracking Dataset for Emotion Recognition in Virtual Reality**. It includes:
+This repository contains the dataset and code implementation for the paper:
+
+**Through the Eyes of Emotion: A Multi-faceted Eye Tracking Dataset for Emotion Recognition in Virtual Reality**  
+[Tongyun Yang](https://tonyyunyang.github.io), Bishwas Regmi, Lingyu Du, [Andreas Bulling](https://www.perceptualui.org/people/bulling/), [Xucong Zhang](https://www.ccmitss.com/zhang), [Guohao Lan](https://guohao.netlify.app/)  
+*Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT), Vol. 9, No. 3, Article 143, 2025*
+
+📄 **Paper:** [ACM Digital Library](https://dl.acm.org/doi/10.1145/3749545) | [PDF](https://dl.acm.org/doi/pdf/10.1145/3749545)  
+📊 **Dataset:** [Zenodo (Full)](https://zenodo.org/records/16790658) | [Sample Data](https://zenodo.org/records/14165275)
+
+---
+
+It includes:
 - **Multi-faceted Eye Tracking Dataset for Emotion Recognition**, featuring periocular videos, high-frequency eye-tracking signals, VR scene recordings, and IMU data.
 - **Data Collection and Annotation Tools**, implemented in Unity and Label Studio.
 
